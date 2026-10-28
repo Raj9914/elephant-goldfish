@@ -1,0 +1,26 @@
+name: check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  shared-prompts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Shared goldfish prompts are in sync
+        run: python3 scripts/sync_shared.py --check
+      - name: No unfilled per-project placeholders in commands
+        run: |
+          if grep -rn "\[BOOTSTRAP:" claude/commands codex/skills gemini/commands; then
+            echo "Commands must read .eg/config.md instead of [BOOTSTRAP: ...] placeholders"
+            exit 1
+          fi
+      - name: Manifests are valid JSON
+        run: |
+          python3 -m json.tool .claude-plugin/marketplace.json > /dev/null
+          python3 -m json.tool claude/.claude-plugin/plugin.json > /dev/null

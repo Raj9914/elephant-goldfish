@@ -1,0 +1,17 @@
+{
+  "name": "elephant-goldfish",
+  "owner": {
+    "name": "Raj9914"
+  },
+  "metadata": {
+    "description": "Elephant/goldfish workflow for Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "elephant-goldfish",
+      "source": "./claude",
+      "description": "Fresh-context subagents check your bug diagnosis, design doc and diff before you commit.",
+      "version": "2.0.0"
+    }
+  ]
+}

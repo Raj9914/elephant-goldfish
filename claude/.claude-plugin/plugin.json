@@ -1,0 +1,12 @@
+{
+  "name": "elephant-goldfish",
+  "description": "Elephant/goldfish workflow: fresh-context subagents check your diagnosis, design and diff before you commit. Project settings live in .eg/config.md.",
+  "version": "2.0.0",
+  "author": {
+    "name": "Raj9914"
+  },
+  "homepage": "https://github.com/Raj9914/elephant-goldfish",
+  "repository": "https://github.com/Raj9914/elephant-goldfish",
+  "license": "MIT",
+  "keywords": ["code-review", "design-review", "subagents", "workflow", "debugging"]
+}
